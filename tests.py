@@ -356,7 +356,8 @@ class TestProxies(object):
             with pytest.raises(type(e)):
                 func(p, *args)
         else:
-            assert func(p, *args) == result
+            proxied_result = func(p, *args)
+            assert proxied_result == result
         # If this func takes two arguments, try them reversed as well
         if other is not _unset:
             try:
